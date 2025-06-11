@@ -95,5 +95,22 @@ Paste this payload:
 ![image](https://github.com/user-attachments/assets/a1bfdd93-cfd8-4390-a101-8f1c7d8237e4)
 
 You get contents of a password file:
+
 ![image](https://github.com/user-attachments/assets/61e65d11-0f36-4161-9a7f-a25849f302ba)
 
+## TASK2:A4: Honey Pot demo:
+
+```
+
+cd /home/kali/pentbox-1.8
+ ./pentbox.rb
+
+```
+
+![image](https://github.com/user-attachments/assets/6ad8f047-1b6f-46bc-a8e3-a7af507e5829)
+
+
+
+
+
+## TASK2:A4: XML External Entities (XXE)
