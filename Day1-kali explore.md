@@ -109,8 +109,23 @@ cd /home/kali/pentbox-1.8
 
 ![image](https://github.com/user-attachments/assets/6ad8f047-1b6f-46bc-a8e3-a7af507e5829)
 
+we shall make a fake smtp port 25 to have hackers to connect to it: first nmap your kali linux:
 
+![image](https://github.com/user-attachments/assets/7f4824f4-a5d5-4728-84d6-b10b6cb8cccb)
 
+now type: 2  then 3  then 2  then 25  then "this is mail server" then n  then n
+
+![image](https://github.com/user-attachments/assets/c36dbc69-1842-4b2c-ac86-249c38783912)
+
+Now nmap from windows and see if port 25 is open and try to telnet 25:
+
+![image](https://github.com/user-attachments/assets/1db8343e-3b23-49ea-9fae-052f289f6efd)
+
+Now check the kali console:
+
+![image](https://github.com/user-attachments/assets/200a0236-a313-418b-9ddb-8b7d24cc5323)
+
+Now do this for port 23:
 
 
 ## TASK2:A4: XML External Entities (XXE)
