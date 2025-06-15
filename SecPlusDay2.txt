@@ -1,0 +1,213 @@
+https://rstforum.net/whitepaper/lab-3-asa-firewall
+https://pei.com/set-up-ssh-cisco-asa/
+https://www.geeksforgeeks.org/telnet-and-ssh-on-adaptive-security-appliance-asa/
+https://www.cisco.com/c/en/us/support/docs/security/asa-5500-x-series-next-generation-firewalls/118075-configure-asa-00.pdf
+
+config t
+aaa authentication ssh console LOCAL
+username username password P@ssw0rd priv 15
+aaa authentication enable console LOCAL
+aaa authentication serial console LOCAL
+crypto key generate rsa modulus 4096
+ssh 0.0.0.0 0.0.0.0 inside
+ssh version 2
+
+
+!SecPLusDay2
+ASA:
+Gi1/1=209.165.200.226 out
+Gi1/2=172.16.3.1 inside
+Gi1/3=192.168.2.1 dmz
+
+BasicASAcli:
+Step 2: Determine the ASA version, interfaces, and license.
+The ASA 5506-X comes with an integrated eight-port Ethernet switch.
+Ports G1/1 to G1/8 are normal GigabitEthernet ports.
+Use the show version command to determine various aspects of this ASA device.
+ciscoasa# show version
+What software version is this ASA running?
+_______________________________________________________________________________________
+What is the name of the system image file and from where was it loaded?
+_______________________________________________________________________________________
+_______________________________________________________________________________________
+The ASA can be managed using a built-in GUI known as ASDM. What version of ASDM is this ASA running?
+_______________________________________________________________________________________
+What is the Firepower Extension Operating System version?
+_______________________________________________________________________________________
+How much RAM does this ASA have?
+_______________________________________________________________________________________
+How much flash memory does this ASA have?
+_______________________________________________________________________________________
+How many Ethernet ports does this ASA have?
+_______________________________________________________________________________________
+What type of license does this ASA have?
+_______________________________________________________________________________________
+How many VLANs can be created with this license?
+_______________________________________________________________________________________
+
+
+Lab1: asa5506 from zero:
+config t
+hostname ASA-M
+domain-name ccnasecurity.com
+enable password class
+clock set 19:09:00 april 19 2019
+If you completed the initial configuration Setup utility, the MGMT interface was configured with an IP address of 192.168.100.1. You will configure another interface as the inside interface for this lab. You will only configure the inside and outside interfaces at this time. The dmz interface will be configured in Part 6 of the lab.
+a.	Configure interface G1/2 for the inside network, 192.168.1.0/24. Name the interface inside, set the security level to the highest setting of 100 and enable it.
+CCNAS-ASA(config)# interface g1/2
+CCNAS-ASA(config-if)# nameif inside
+CCNAS-ASA(config-if)# ip address 192.168.1.1 255.255.255.0
+CCNAS-ASA(config-if)# security-level 100
+CCNAS-ASA(config-if)# no shutdown
+b.	Configure interface G1/1for the outside network, 209.165.200.224/29. Name the interface outside, set the security level to the lowest setting of 0 and enable it.
+CCNAS-ASA(config-if)# interface g1/1
+CCNAS-ASA(config-if)# nameif outside
+CCNAS-ASA(config-if)# ip address 209.165.200.226 255.255.255.248
+CCNAS-ASA(config-if)# security-level 0
+CCNAS-ASA(config-if)# no shutdown
+c.	Remove the configuration from the M1/1 interface and shut it down (if required).
+CCNAS-ASA(config)# interface m1/1
+CCNAS-ASA(config-if)# shutdown
+CCNAS-ASA(config-if)# no ip address
+
+
+Task 2: Configuration on ASA Firewall:
+Step 1: Configure ASA Firewall with IP address and zone information (refer LAB Topology).
+LAB1:
+ciscoasa> en
+Password:
+ciscoasa# conf t
+ciscoasa(config)# interface gi0/0
+ciscoasa(config-if)# ip address 100.0.0.10 255.255.255.0
+ciscoasa(config-if)# nameif inside
+INFO: Security level for "inside" set to 100 by default.
+ciscoasa(config-if)# no sh
+ciscoasa(config-if)# exit
+ciscoasa(config)# interface gi0/1
+ciscoasa(config-if)# ip address 200.0.0.10 255.255.255.0
+ciscoasa(config-if)# nameif outside
+INFO: Security level for "outside" set to 0 by default.
+ciscoasa(config-if)# no sh
+ciscoasa(config-if)# exit
+ciscoasa(config)# interface gi0/2
+ciscoasa(config-if)# ip address 1.1.1.10 255.255.255.0
+ciscoasa(config-if)# nameif dmz
+INFO: Security level for "dmz" set to 0 by default.
+ciscoasa(config-if)# security-level 50
+ciscoasa(config-if)# no sh
+ciscoasa(config-if)# exit
+
+Step 2: Verify the IP address and zone information on ASA firewall.**
+
+ciscoasa(config)# show interface ip brief
+Interface                  IP-Address        OK? Method        Status                Protocol
+1
+GigabitEthernet0/0         100.0.0.10        YES  manual       up                up 
+GigabitEthernet0/1         200.0.0.10        YES  manual       up                up 
+GigabitEthernet0/2         1.1.1.10          YES  manual       up                up 
+GigabitEthernet0/3         unassigned        YES  unset               administratively down         
+        up 
+GigabitEthernet0/4         unassigned        YES  unset       administratively down        up 
+GigabitEthernet0/5         unassigned        YES  unset       administratively down        up 
+GigabitEthernet0/6         unassigned        YES  unset       administratively down        up 
+Management0/0              unassigned        YES  unset       administratively down        up 
+ciscoasa(config)# show nameif
+Interface                  Name     Security
+GigabitEthernet0/0         inside   100
+GigabitEthernet0/1          outside  0
+GigabitEthernet0/2          dmz      50
+ciscoasa(config)# wr
+Building configuration...
+Cryptochecksum: 3002b2ff ef849a90 3814bb98 20c0a7c3
+ 
+7324 bytes copied in 0.440 secs
+\[OK\]
+
+Step 3: Inspect the flow of traffic between zones through ASA firewall.**
+
+IN#telnet 200.0.0.2
+Trying 200.0.0.2 ... Open
+ 
+User Access Verification
+ 
+Password:
+OUT>
+
+ciscoasa(config)# sh conn
+1 in use, 1 most used
+ 
+TCP outside  200.0.0.2:23 inside  100.0.0.1:19180, idle 0:00:09, bytes 337, flags UIO
+ 
+IN#telnet 1.1.1.3 
+Trying 1.1.1.3 ... Open
+ 
+User Access Verification
+ 
+Password:
+DMZ>
+ciscoasa(config)# sh conn
+2 in use, 2 most used
+ 
+TCP dmz  1.1.1.3:23 inside  100.0.0.1:24438, idle 0:00:02, bytes 119, flags UIO
+ 
+ 
+DMZ#telnet 200.0.0.2
+Trying 200.0.0.2 ... Open
+ 
+User Access Verification
+ 
+Password:
+OUT>
+ 
+ciscoasa(config)# sh conn
+1 in use, 1 most used
+ 
+TCP outside  200.0.0.2:23 dmz  1.1.1.3:39204, idle 0:00:05, bytes 127, flags UIO
+ 
+OUT#telnet 100.0.0.1
+Trying 100.0.0.1 ...
+% Connection timed out; remote host not responding
+ 
+OUT#telnet 1.1.1.3        
+Trying 1.1.1.3 ...
+% Connection timed out; remote host not responding
+ 
+DMZ#telnet 100.0.0.1      
+Trying 100.0.0.1 ...
+% Connection timed out; remote host not responding
+
+https://github.com/rivancorp/secdevops
+
+ASA perimeter Network:
+
+outside: Pentest: 192.168.108.129_
+inside:  bldg1: internal/vmnet2
+         bldg2: internal/vmnet2
+dmz:  apps1,apps1-linux
+
+
+Gophish
+jjcz rggw vunt bnqn
+
+sudo su
+cd downloads
+
+https://github.com/gophish/gophish/releases
+
+sudo apt install -y ufw
+sudo ufw enable
+sudo ufw allow 3333/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw reload
+sudo ufw status
+
+sudo ./gophish
+
+OPEN CMD
+cd desktop
+cd folder niyo
+git clone https://github.com/rivan16/gophish
+https://github.com/gophish/gophish/releases
+
+

