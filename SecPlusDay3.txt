@@ -405,6 +405,23 @@ Support for regulatory frameworks like ISO 27001, PCI-DSS, HIPAA, GDPR.
 Audit preparation and evidence collection (e.g., log retention, DLP events).
 Why it matters: Ensures transparency, accountabiliy, and legal/regulatory alignment.
 
+✅ Top 8 SOC Services (Ranked High to Low)
+Rank	SOC Service	Description
+1️⃣	24/7 Threat Monitoring and Detection	Continuous real-time monitoring of logs, network traffic, endpoints, and cloud assets using SIEM, EDR, IDS/IPS to detect and alert on threats.
+
+2️⃣	Incident Response and Containment	Investigating, containing, and remediating security incidents such as ransomware, phishing, or unauthorized access. Often includes forensic analysis and recovery steps.
+
+3️⃣	Vulnerability Management	Scanning systems and software for known vulnerabilities, prioritizing risks, and recommending or tracking patching/remediation efforts.
+
+4️⃣	Threat Intelligence Integration	Enriching alerts with IOCs, attacker behavior patterns (TTPs), and threat actor information using feeds, OSINT, and commercial intel.
+
+5️⃣	Security Device Management	Managing and tuning firewalls, SIEM, EDR, IDS/IPS, DLP, and antivirus systems, ensuring they are up to date, optimized, and generating quality alerts.
+
+6️⃣	Log Management and Retention	Collecting, storing, and indexing logs from various devices and cloud services for compliance, auditing, and forensic investigation.
+
+7️⃣	Compliance and Reporting Support	Generating security reports, maintaining audit trails, and helping meet frameworks like NIST, ISO 27001, PCI-DSS, HIPAA, GDPR, DPA
+
+8️⃣	Security Awareness & User Education	Providing phishing simulations, security training, and policy awareness to reduce human error and social engineering risks.
 
 
 
