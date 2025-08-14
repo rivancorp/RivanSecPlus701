@@ -56,3 +56,15 @@
    # Example:
    monitor_number: 11  # Change the _ to 11 
 ---
+
+## 📂 Red teams vs Blue team vs Purple teams:
+
+- OSINT skills
+- Scanning
+- vulnerability assessments  
+- pentest of devices:nas,fw,dbs,rst,WebApps,portals, etc.
+- IOT
+- Operational technology (OT)  
+- Industrial Control Systems (ICS+)
+- ospfedge.yml
+
