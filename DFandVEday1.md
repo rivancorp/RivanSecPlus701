@@ -27,7 +27,7 @@
   ![09SecALL](https://github.com/user-attachments/assets/99197bf7-f272-44a2-b02f-d10938e65316)
 
 - **Ethics and Legal Issues in Forensics and Exploitation**
-- 
+- **Ethics and Legal Issues in Forensics and Exploitation**
 - **Role of Forensics in Incident Response**
 
 ### **1.1 Introduction to Cybersecurity, Digital Forensics, and Threat Landscape**  
@@ -51,7 +51,12 @@
 1. **Criminal Forensics**
    
 ```
-Criminal forensics is a type of computer forensics that is used in the investigation of criminal activities such as cybercrime, hacking, identity theft, and other digital-related crimes. Criminal forensics focuses on uncovering and preserving evidence that can be used to prosecute the individuals responsible for these crimes.
+
+Criminal forensics is a type of computer forensics that is used in the investigation
+of criminal activities such as cybercrime, hacking, identity theft, and other digital-related crimes.
+Criminal forensics focuses on uncovering and preserving evidence that can be used to prosecute
+the individuals responsible for these crimes.
+
 ```
 
 3. **Monitor Identification**
