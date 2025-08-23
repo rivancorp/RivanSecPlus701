@@ -6,8 +6,11 @@
 
 # ⚙️ Day One: Cyber security Fundamentals and Real world lab Setup: 
 
-[![ansible](https://img.shields.io/badge/ansible-2.12.0-black?style=for-the-badge&logo=ansible)](https://www.ansible.com/)
-[windows]![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![Kali](https://img.shields.io/badge/Kali-268BEE?style=for-the-badge&logo=kalilinux&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Cisco](https://img.shields.io/badge/cisco-%23049fd9.svg?style=for-the-badge&logo=cisco&logoColor=black)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 [![Maintenance](https://img.shields.io/badge/maintained%3F-yes-green?style=for-the-badge)](https://github.com/yourusername/yourrepo/graphs/commit-activity)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
