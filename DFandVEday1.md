@@ -7,12 +7,11 @@
 # ⚙️ Day One: Cyber security Fundamentals and Real world lab Setup: 
 
 [![Kali Linux](https://img.shields.io/badge/ansible-2.12.0-black?style=for-the-badge&logo=ansible)](https://www.ansible.com/)
-[![Windows Server](https://img.shields.io/badge/ansible-2.12.0-black?style=for-the-badge&logo=ansible)](https://www.ansible.com/)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 [![Maintenance](https://img.shields.io/badge/maintained%3F-yes-green?style=for-the-badge)](https://github.com/yourusername/yourrepo/graphs/commit-activity)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
-> Enterprise-grade network automation framework for standardized device provisioning and configuration management.
+> Digital forensics and vulnerability exploitation training is essential for equipping professionals with the skills to investigate cyber incidents, uncover evidence, and proactively identify and mitigate security weaknesses before they can be exploited by attackers.
 
 ---
 
