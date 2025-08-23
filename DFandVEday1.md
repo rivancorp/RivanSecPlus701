@@ -19,16 +19,24 @@
 
 ---
 
-## 📂 Repository Structure
+## 📂 Day1.0: cyber security and network fundamentals laboratory setup:
 
-- BASIC-CONFIG.yml
-- ap.yml  
-- call.yml  
-- core.yml  
-- dns.ps1  
-- dns.yml  
-- iphone.yml  
-- ospfedge.yml  
+- **Introduction to Cybersecurity, Digital Forensics, and Threat Landscape**
+
+  Cyber Security In one Page:
+  
+
+  ![09SecALL](https://github.com/user-attachments/assets/99197bf7-f272-44a2-b02f-d10938e65316)
+
+- **Ethics and Legal Issues in Forensics and Exploitation** 
+- **Role of Forensics in Incident Response**
+
+### **1.1 Introduction to Cybersecurity, Digital Forensics, and Threat Landscape**  
+- run_all.yml  
+- show.yml  
+- README.md  
+
+
 
 **Root Files**  
 - run_all.yml  
