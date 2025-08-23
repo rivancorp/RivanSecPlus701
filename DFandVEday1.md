@@ -6,7 +6,8 @@
 
 # ⚙️ Day One: Cyber security Fundamentals and Real world lab Setup: 
 
-[![Kali Linux](https://img.shields.io/badge/ansible-2.12.0-black?style=for-the-badge&logo=ansible)](https://www.ansible.com/)
+[![ansible](https://img.shields.io/badge/ansible-2.12.0-black?style=for-the-badge&logo=ansible)](https://www.ansible.com/)
+[windows]![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 [![Maintenance](https://img.shields.io/badge/maintained%3F-yes-green?style=for-the-badge)](https://github.com/yourusername/yourrepo/graphs/commit-activity)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
