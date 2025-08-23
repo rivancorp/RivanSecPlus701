@@ -15,8 +15,6 @@
 [![Maintenance](https://img.shields.io/badge/maintained%3F-yes-green?style=for-the-badge)](https://github.com/yourusername/yourrepo/graphs/commit-activity)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
-> Digital forensics and vulnerability exploitation training is essential for equipping professionals with the skills to investigate cyber incidents, uncover evidence, and proactively identify and mitigate security weaknesses before they can be exploited by attackers.
-
 ---
 
 ## 📂 Day1.0: cyber security and network fundamentals laboratory setup:
@@ -28,7 +26,8 @@
 
   ![09SecALL](https://github.com/user-attachments/assets/99197bf7-f272-44a2-b02f-d10938e65316)
 
-- **Ethics and Legal Issues in Forensics and Exploitation** 
+- **Ethics and Legal Issues in Forensics and Exploitation**
+- 
 - **Role of Forensics in Incident Response**
 
 ### **1.1 Introduction to Cybersecurity, Digital Forensics, and Threat Landscape**  
@@ -45,20 +44,15 @@
 
 ---
 
-## ⚠️ Critical Configuration Requirements
+## ⚠️ Digital Forensics:
 
 ### Mandatory Pre-Deployment Steps:
 
-1. **File Customization**
+1. **Criminal Forensics**
    
-   Update these configuration files before execution:
-   
-   - `BASIC-CONFIG.yml`
-   - `call.yml`
-   - `core.yml`
-   - `dns.ps1`
-   - `iphone.yml`
-   - `ospf.yml`
+```
+Criminal forensics is a type of computer forensics that is used in the investigation of criminal activities such as cybercrime, hacking, identity theft, and other digital-related crimes. Criminal forensics focuses on uncovering and preserving evidence that can be used to prosecute the individuals responsible for these crimes.
+```
 
 3. **Monitor Identification**
    
