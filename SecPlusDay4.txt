@@ -229,6 +229,50 @@ Rank	SOC Service	Description
 8️⃣	Security Awareness & User Education	Providing phishing simulations, security training, and policy awareness to reduce human error and social engineering risks.
 
 
+Data Privacy Act of 2012 (RA 10173)
+The DPA is the foundation of privacy regulation in the Philippines, mandating all organizations that collect or process personal data to implement robust security measures and promptly respond to breaches.
+
+Requires appointment of a Data Protection Officer, breach notification within 72 hours, and privacy impact assessments for high-risk projects.
+
+Overseen by the National Privacy Commission, non-compliance can result in hefty fines and criminal liability.
+
+This law aligns the Philippines with global data protection practices, especially affecting finance, healthcare, and e-commerce sectors.
+
+Cybercrime Prevention Act of 2012 (RA 10175)
+This law defines and penalizes a wide range of cybercrimes, including hacking, identity theft, cyber libel, data interference, illegal access, cybersex, child pornography online, and cyber fraud.
+
+Provides legal grounds for digital forensics, evidence preservation, and rapid incident response for law enforcement.
+
+Punishments include prison terms and significant fines, introducing universal jurisdiction (offenses committed by Filipinos abroad are covered).
+
+Empowers authorities to order blocking of harmful content and requires service providers to preserve computer data upon request.
+
+Electronic Commerce Act of 2000 (RA 8792)
+Recognizes electronic documents and digital signatures as legally valid, paving the way for secure e-commerce and paperless transactions.
+
+Includes provisions against hacking and unauthorized access, making it one of the earliest computer-related laws in the Philippines.
+
+Helped kick-start national cybersecurity awareness by acknowledging computer-related offenses and supporting e-business.
+
+SIM Registration Act (Republic Act No. 11934)
+Mandates the registration of all SIM cards to reduce online fraud, phishing, and anonymity used in cybercrimes.
+
+Requires telecom providers to safeguard user data and provide information to law enforcement for cybercrime investigations.
+
+Has privacy implications and is the subject of ongoing public debates around surveillance, state monitoring, and potential for abuse.
+
+National Cybersecurity Plan 2023–2028
+This policy directive strengthens the country’s cyber defense posture by focusing on proactive protection, intelligence, and capacity building.
+
+Emphasizes incident response, recovery mechanisms, active defense against nation-state actors, and international cooperation.
+
+Champions the development of the Armed Forces' cyber units and prioritizes defense against advanced persistent threats.
+
+Institutionalizes national strategies for collaboration across government, critical infrastructure, and private sectors.
+
+Conclusion
+
+
 
 
 
